@@ -3,10 +3,10 @@
   "plugins": ["unused-imports"],
   "rules": {
     "semi": ["warn", "always"],
-    "no-unused-vars": 2,
+    "no-unused-vars": 0,
     "unused-imports/no-unused-imports": "error",
     "unused-imports/no-unused-vars": [
-      "warn",
+      "error",
       {
         "vars": "all",
         "varsIgnorePattern": "^_",

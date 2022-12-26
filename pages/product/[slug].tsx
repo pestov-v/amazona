@@ -1,15 +1,17 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import data from 'utils/data';
-import { Layout } from 'components/Layout';
-import Image from 'next/image';
+import { useStoreCart } from 'store/cart';
+import { Layout } from 'components/Layouts/MainLayout';
+import { ProductPriceCard } from 'components/ProductItem/ProductPriceCard';
+import { ProductDescription } from 'components/ProductItem/ProductDescription';
 
 export default function Product() {
   const { query } = useRouter();
   const { slug } = query;
-
+  const addToCart = useStoreCart((s) => s.addItem);
   const product = data.products.find((p) => p.slug === slug);
-  const inStock = product?.countInStock > 0;
 
   const content = !product ? (
     <div className='h-40 flex justify-center items-center'>
@@ -18,8 +20,11 @@ export default function Product() {
   ) : (
     <>
       <div className='py-4'>
-        <Link href='/'>back</Link>
+        <Link href='/' className='px-2'>
+          Continue shoping
+        </Link>
       </div>
+
       <div className='grid md:grid-cols-4 md:gap-3'>
         <div className='md:col-span-2'>
           <Image
@@ -31,37 +36,19 @@ export default function Product() {
         </div>
 
         <div>
-          <ul>
-            <li>
-              <h1 className='text-lg'>{product.name}</h1>
-            </li>
-            <li>Category: {product.category}</li>
-            <li>Brand: {product.brand}</li>
-            <li>
-              {product.rating} of {product.numReviews} reviews
-            </li>
-            <li>Description: {product.description}</li>
-          </ul>
+          <ProductDescription {...product} />
         </div>
 
         <div>
-          <div className='card p-5'>
-            <div className='flex justify-between font-semibold mb-2'>
-              <span>Price</span>
-              <span>${product.price}</span>
-            </div>
-            <div className='flex justify-between font-semibold mb-2'>
-              <span>Status</span>
-              <span className={inStock ? 'text-green-600' : 'text-red-500'}>
-                {inStock ? 'In stock' : 'Unavailable'}
-              </span>
-            </div>
-            <button className='primary-button w-full'>Add to cart</button>
-          </div>
+          <ProductPriceCard
+            price={product.price}
+            inStock={product?.countInStock > 0}
+            addToCart={() => addToCart(product)}
+          />
         </div>
       </div>
     </>
   );
 
-  return <Layout title={product.name}>{content}</Layout>;
+  return <Layout title={product?.name}>{content}</Layout>;
 }

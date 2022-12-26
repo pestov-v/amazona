@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import Head from 'next/head';
-import { Header } from 'components/Header';
-import { Footer } from 'components/Footer';
+import { Header } from 'components/Layouts/Header/Header';
+import { Footer } from 'components/Layouts/Footer';
 
 interface IProps {
   title?: string;
-  children: JSX.Element;
+  children: ReactNode;
 }
 export const Layout = (props: IProps) => {
   const { children, title } = props;

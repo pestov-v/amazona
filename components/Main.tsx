@@ -1,6 +1,6 @@
 import React from 'react';
 import data from 'utils/data';
-import { ProductItem } from './ProductItem';
+import { ProductItem } from 'components/ProductItem/ProductItem';
 
 export const Main = () => {
   return (
