@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { IProduct } from 'types';
-import db, { convertDocToObj } from 'utils/db';
+import db from 'utils/db';
 import { ProductModel } from 'models/ProductModel';
 import { useStoreCart } from 'store/cart';
 import { MainLayout } from 'components/Layouts/MainLayout';
@@ -34,7 +34,7 @@ export default function Product({ product }: { product: IProduct | null }) {
         </Link>
       </div>
 
-      <div className='grid md:grid-cols-4 md:gap-3'>
+      <div className='grid md:grid-cols-4 gap-3'>
         <div className='md:col-span-2'>
           <Image
             src={product.image}
@@ -71,7 +71,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   return {
     props: {
-      product: data ? convertDocToObj(data) : null,
+      product: data ? db.convertDocToObj(data) : null,
     },
   };
 };

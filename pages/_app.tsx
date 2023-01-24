@@ -1,8 +1,7 @@
 import type { AppProps } from 'next/app';
 import { SessionProvider } from 'next-auth/react';
 import { NextComponentType } from 'next';
-// eslint-disable-next-line max-len
-import { PayPalScriptProvider } from '@paypal/react-paypal-js/dist/types/components/PayPalScriptProvider';
+import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 import { Auth } from 'HOC/Auth';
 import 'styles/globals.css';
 import 'react-toastify/dist/ReactToastify.css';

@@ -24,7 +24,6 @@
   },
   "devDependencies": {
     "@svgr/webpack": "^6.5.1",
-    "@types/": "paypal/react-paypal-js",
     "@types/js-cookie": "^3.0.2",
     "@types/node": "18.11.17",
     "@types/react": "18.0.26",

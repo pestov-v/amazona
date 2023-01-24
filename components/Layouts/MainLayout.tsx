@@ -1,9 +1,9 @@
 import { ReactNode } from 'react';
 import Head from 'next/head';
+import { ToastContainer } from 'react-toastify';
 
 import { Header } from 'components/Layouts/Header/Header';
 import { Footer } from 'components/Layouts/Footer';
-import { ToastContainer } from 'react-toastify';
 
 interface IProps {
   title?: string;

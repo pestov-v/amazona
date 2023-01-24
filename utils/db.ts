@@ -47,13 +47,6 @@ async function disconnect() {
   }
 }
 
-const db = {
-  connect,
-  disconnect,
-};
-
-export default db;
-
 export const convertDocToObj = (doc: LeanDocument<IProduct>): IProduct => {
   return {
     ...doc,
@@ -62,3 +55,11 @@ export const convertDocToObj = (doc: LeanDocument<IProduct>): IProduct => {
     updatedAt: doc.updatedAt.toString(),
   };
 };
+
+const db = {
+  connect,
+  disconnect,
+  convertDocToObj,
+};
+
+export default db;

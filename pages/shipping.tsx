@@ -48,7 +48,14 @@ const ShippingScreen = () => {
     formData.city.setValue(city);
     formData.postalCode.setValue(postalCode.toString());
     formData.country.setValue(country);
-  }, []);
+  }, [
+    formData.name,
+    formData.address,
+    formData.city,
+    formData.postalCode,
+    formData.country,
+    shippingAddress,
+  ]);
 
   const submitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

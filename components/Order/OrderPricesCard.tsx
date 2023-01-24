@@ -1,8 +1,9 @@
 import { FC, useEffect } from 'react';
-import { PayPalButtons } from '@paypal/react-paypal-js';
-// eslint-disable-next-line max-len
-import { usePayPalScriptReducer } from '@paypal/react-paypal-js/dist/types/hooks/scriptProviderHooks';
-import { SCRIPT_LOADING_STATE } from '@paypal/react-paypal-js/dist/types/types';
+import {
+  PayPalButtons,
+  usePayPalScriptReducer,
+  SCRIPT_LOADING_STATE,
+} from '@paypal/react-paypal-js';
 import { getError } from 'utils/errors';
 import { toast } from 'react-toastify';
 

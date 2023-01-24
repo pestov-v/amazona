@@ -1,5 +1,5 @@
 import { IProduct } from 'types';
-import db, { convertDocToObj } from 'utils/db';
+import db from 'utils/db';
 import { ProductModel } from 'models/ProductModel';
 import { MainLayout } from 'components/Layouts/MainLayout';
 import { ProductItem } from 'components/ProductItem/ProductItem';
@@ -21,7 +21,7 @@ export default function Home(props: { products: IProduct[] }) {
 export const getServerSideProps = async () => {
   await db.connect();
   const productsDB = await ProductModel.find().lean();
-  const products = productsDB.map(convertDocToObj);
+  const products = productsDB.map(db.convertDocToObj);
   await db.disconnect();
 
   return {
