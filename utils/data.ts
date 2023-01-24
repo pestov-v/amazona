@@ -10,13 +10,13 @@ const data: IData = {
     {
       name: 'John',
       email: 'admin@example.com',
-      password: bcrypt.hashSync('123456'),
+      password: bcrypt.hashSync('Z3Zl3in4'),
       isAdmin: true,
     },
     {
       name: 'Jane',
       email: 'user@example.com',
-      password: bcrypt.hashSync('123456'),
+      password: bcrypt.hashSync('Z3Zl3in4'),
       isAdmin: false,
     },
   ],

@@ -1,9 +1,10 @@
-import Link from 'next/link';
 import React from 'react';
+import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import { useStoreCart } from 'store/cart';
 
-export const CartIcon = () => {
-  const items = useStoreCart((state) => state.items);
+export const CartIconComponent = () => {
+  const items = useStoreCart((s) => s.items);
   const totalItems = items.reduce((acc, curr) => acc + curr.quantity, 0);
 
   return (
@@ -22,4 +23,6 @@ export const CartIcon = () => {
   );
 };
 
-export default CartIcon;
+export const CartIcon = dynamic(() => Promise.resolve(CartIconComponent), {
+  ssr: false,
+});

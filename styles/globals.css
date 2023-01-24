@@ -1,3 +1,4 @@
+@import '~react-toastify/dist/ReactToastify.min.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -29,12 +30,37 @@ a {
   }
 }
 
-.card {
-  @apply mb-5 block rounded-lg border border-gray-300 shadow-md dark:shadow-gray-600;
+@layer components {
+  .card {
+    @apply mb-5 block rounded-lg border border-gray-300 shadow-md dark:shadow-gray-600;
+  }
+  .primary-button {
+    @apply rounded py-2 px-4 outline-none transition-colors shadow font-semibold text-black
+      bg-amber-300 hover:bg-amber-500 focus:bg-amber-500 active:bg-amber-600 dark:shadow-neutral-500
+      dark:bg-amber-600 dark:hover:bg-amber-400 dark:focus:bg-amber-400 dark:active:bg-amber-400
+      disabled:bg-amber-100 disabled:cursor-not-allowed disabled:text-gray-600;
+  }
+  .default-button {
+    @apply rounded py-2 px-4 outline-none transition-colors shadow font-semibold text-black
+      bg-gray-200 hover:bg-gray-400 focus:bg-gray-400 active:bg-gray-400 dark:shadow-neutral-500
+      dark:bg-gray-600 dark:hover:bg-gray-400 dark:focus:bg-gray-400 dark:active:bg-gray-400
+      disabled:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-600;
+  }
+  .dropdown-link {
+    @apply flex p-2 hover:bg-neutral-200 dark:hover:bg-neutral-600;
+  }
+  .alert-success {
+    @apply my-3 p-3 rounded-lg bg-green-100 text-green-700;
+  }
+  .alert-error {
+    @apply my-3 p-3 rounded-lg bg-red-100 text-red-700;
+  }
 }
 
-.primary-button {
-  @apply rounded py-2 px-4 outline-none transition-colors shadow font-semibold text-black
-    bg-amber-300 hover:bg-amber-500 focus:bg-amber-500 active:bg-amber-600
-    dark:bg-amber-600 dark:hover:bg-amber-400 dark:focus:bg-amber-400 dark:active:bg-amber-400;
+.app {
+  --cart-content-height: calc(100vh - 10rem);
+}
+
+input::placeholder {
+  font: inherit;
 }

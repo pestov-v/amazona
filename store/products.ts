@@ -11,15 +11,3 @@ export const useStoreProducts = create<IProductSlice>((set) => ({
     set({ items });
   },
 }));
-
-// export const createProductSlice: StateCreator<
-//   IProductSlice,
-//   [],
-//   [],
-//   IProductSlice
-// > = (set) => ({
-//   items: [],
-//   addItems: (items: IProduct[]) => {
-//     set({ items });
-//   },
-// });

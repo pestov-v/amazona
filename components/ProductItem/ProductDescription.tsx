@@ -14,14 +14,20 @@ export const ProductDescription: FC<IProps> = (props) => {
   return (
     <ul>
       <li>
-        <h1 className='text-lg'>{name}</h1>
+        <h1 className='text-2xl font-semibold mb-4'>{name}</h1>
       </li>
-      <li>Category: {category}</li>
-      <li>Brand: {brand}</li>
       <li>
-        {rating} of {numReviews} reviews
+        <strong>Category:</strong> {category}
       </li>
-      <li>Description: {description}</li>
+      <li>
+        <strong>Brand:</strong> {brand}
+      </li>
+      <li>
+        <strong>{rating}</strong> of <strong>{numReviews}</strong> reviews
+      </li>
+      <li>
+        <strong>Description:</strong> {description}
+      </li>
     </ul>
   );
 };

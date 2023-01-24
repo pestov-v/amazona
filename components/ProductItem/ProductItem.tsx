@@ -2,22 +2,20 @@ import Link from 'next/link';
 import React, { FC, MouseEvent } from 'react';
 import { useStoreCart } from 'store/cart';
 import { IProduct } from 'types';
-import data from 'utils/data';
 
 interface IProps {
   product: IProduct;
 }
 export const ProductItem: FC<IProps> = ({ product }) => {
-  const addItem = useStoreCart((state) => state.addItem);
+  const addItem = useStoreCart((s) => s.addItem);
 
   const addItemHandler = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    // e.stopPropagation();
-    const prod = data.products.find((p) => p.slug === product.slug);
-    addItem(prod);
+    addItem(product);
   };
+
   return (
-    <Link href={`/product/${product.slug}`} className='card'>
+    <Link href={`/product/${product._id}`} className='card'>
       <img src={product.image} alt={product.name} className='rounded shadow' />
 
       <div className='flex flex-col justify-center items-center p-5'>
