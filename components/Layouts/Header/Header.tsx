@@ -1,19 +1,10 @@
-import { useEffect } from 'react';
 import Link from 'next/link';
-import { useSession, signIn, signOut } from 'next-auth/react';
+import { useSession, signOut } from 'next-auth/react';
 import { Menu } from '@headlessui/react';
 import { useStoreCart } from 'store/cart';
 import { CartIcon } from './CartIcon';
 
 export const Header = () => {
-  useEffect(() => {
-    signIn('credentials', {
-      email: 'admin@example.com',
-      password: 'Z3Zl3in4',
-      redirect: false,
-    });
-  }, []);
-
   const { data: session } = useSession();
   const reset = useStoreCart((s) => s.reset);
   const logoutHandler = () => {

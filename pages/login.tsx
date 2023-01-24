@@ -10,9 +10,6 @@ import { getError } from 'utils/errors';
 
 const Login = () => {
   const { data: session } = useSession();
-
-  console.log('Loginh Session', session);
-
   const router = useRouter();
   const { redirect } = router.query;
 
@@ -48,7 +45,7 @@ const Login = () => {
         toast.error(res.error);
       }
     } catch (e) {
-      console.log('Error:', getError(e));
+      toast.error(getError(e));
     }
   };
 

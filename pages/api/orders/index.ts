@@ -6,8 +6,6 @@ import { OrderModel } from 'models/OrderModel';
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const session = await getSession({ req });
 
-  console.log('REQUEST', req);
-
   if (!session) {
     return res.status(401).send('Signin is required!');
   }

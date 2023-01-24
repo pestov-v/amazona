@@ -4,10 +4,7 @@ import { getSession } from 'next-auth/react';
 import db from 'utils/db';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  //
   const session = await getSession({ req });
-
-  console.log('session', session);
 
   if (!session) {
     return res.status(401).send('Signin is required!');
